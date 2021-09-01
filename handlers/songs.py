@@ -11,7 +11,7 @@ def time_to_seconds(time):
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
 
 
-@Client.on_message(filters.commands('bul@missmusicsbot','bul') & ~filters.private & ~filters.channel)
+@Client.on_message(filters.command('bul@missmusicsbot','bul') & ~filters.private & ~filters.channel)
 def bul(client, message):
 
     user_id = message.from_user.id 
@@ -19,7 +19,7 @@ def bul(client, message):
     rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"
 
     query = ''
-    for i in message.command[1:]:
+    for i in message.command[2:]:
         query += ' ' + str(i)
     print(query)
     m = message.reply('🔎 Aranıyor...')
